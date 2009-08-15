@@ -2,7 +2,9 @@
 	<div class="hentry">
 	<h2 class="entry-title"><%= post.title %></h2>
 	<p class="updated"><%= post.created_at.strftime("%b") %><b><%= post.created_at.strftime("%d") %></b></p>
-	<p class="meta"><small><%= post.linked_tags %></small></p>
+	<p class="meta">
+		<%= "#{load_json(post.author)['fname']} #{load_json(post.author)['lname']}" if post.author %><br/>
+		<small><%= post.linked_tags %></small></p>
 	
 	<div class="entry-content">
 		<%= post.body_html %>

@@ -3,7 +3,9 @@
 		<div class="hentry">
 			<h2 class="entry-title"><a href="<%= post.url %>"><%= post.title %></a></h2>
 			<p class="updated"><%= post.created_at.strftime("%b") %><b><%= post.created_at.strftime("%d") %></b></p>
-			<p class="meta"><small>
+			<p class="meta"><%= "#{load_json(post.author)['fname']} #{load_json(post.author)['lname']}" if post.author %><br/>
+				
+				<small>
 				<%= post.linked_tags %>
 				<% if Blog.disqus_shortname %>
 					| <a href="<%= post.url %>#disqus_thread">comments</a>

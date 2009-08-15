@@ -34,6 +34,11 @@ helpers do
 	def cache_page(seconds=5*60)
 		response['Cache-Control'] = "public, max-age=#{seconds}" unless development?
 	end
+	
+	def load_json(json)
+	  JSON.parse(json)
+	end
+	
 end
 
 layout 'layout'
@@ -76,7 +81,7 @@ end
 
 get '/feed' do
 	cache_page
-	@posts = Post.find_range(0, 10)
+	@posts = Post.find_range(0, 20)
 	content_type 'application/atom+xml', :charset => 'utf-8'
 	builder :feed
 end
