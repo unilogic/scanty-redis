@@ -1,6 +1,6 @@
 class Post
 	def self.attrs
-		[ :slug, :title, :body, :tags, :created_at ]
+		[ :slug, :title, :body, :tags, :author, :created_at ]
 	end
 
 	def attrs

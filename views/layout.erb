@@ -10,6 +10,9 @@
 <div id="wrapper">
 	<div id="header">
 		<h1><a href="/"><%= Blog.title %></a></h1>
+		<% if admin? %>
+			<div id="logout"><a href="/logout">Logout</a></div>
+		<% end %>
 	</div>
 
 	<div id="content">

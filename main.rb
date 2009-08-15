@@ -88,15 +88,6 @@ end
 
 ### Admin
 
-get '/auth' do
-	erb :auth
-end
-
-post '/auth' do
-	session.set_cookie(Blog.admin_cookie_key, Blog.admin_cookie_value) if params[:password] == Blog.admin_password
-	redirect '/'
-end
-
 get '/posts/new' do
 	auth
 	erb :edit, :locals => { :post => Post.new, :url => '/posts' }
@@ -104,7 +95,14 @@ end
 
 post '/posts' do
 	auth
-	post = Post.create :title => params[:title], :tags => params[:tags], :body => params[:body], :created_at => Time.now, :slug => Post.make_slug(params[:title])
+	post = Post.create(
+	  :title => params[:title], 
+	  :tags => params[:tags], 
+	  :body => params[:body], 
+	  :created_at => Time.now, 
+	  :slug => Post.make_slug(params[:title]),
+	  :author => request.cookies['user']
+	)
 	redirect post.url
 end
 
@@ -135,5 +133,107 @@ post '/past/:year/:month/:day/:slug/' do
 	post.body = params[:body]
 	post.save
 	redirect post.url
+end
+
+#### AUTH #####
+post '/auth' do
+  user = User.find_by_login(params[:login])
+  if user && user.authenticated?(params[:password])
+	  response.set_cookie(Blog.admin_cookie_key, Blog.admin_cookie_value)
+	  attrs = user.attrs
+	  attrs.delete(:password)
+	  attrs.delete(:password_confirmation)
+	  attrs.delete(:salt)
+	  response.set_cookie('user', attrs.to_json)
+	  redirect '/'
+	else
+	  erb :auth
+	end
+end
+
+get '/auth' do
+	erb :auth
+end
+
+get '/user/:id' do
+  auth
+  user = User.find_by_id(params[:id])
+  stop [ 404, "Page not found" ] unless user
+  erb :user_edit, :locals => { :user => user, :url => "/user/#{user.id}" }
+end
+
+get '/logout' do
+  auth
+  response.set_cookie(Blog.admin_cookie_key, nil)
+  redirect '/'
+end
+
+# Update User
+post '/user/:id' do
+  auth
+  user = User.find_by_id(params[:id])
+  if user
+    user.fname = params[:fname] unless params[:fname].empty?
+    user.lname = params[:lname] unless params[:lname].empty?
+    user.email = params[:email] unless params[:email].empty?
+    user.password = params[:password] unless params[:password].empty?
+    user.password_confirmation = params[:password_confirmation] unless params[:password_confirmation].empty?
+    if user.update
+      redirect "/users"
+    else
+      erb :user_edit, :locals => { :user => user, :url => "/user/#{user.id}" }
+    end
+  else
+    redirect "/user/#{user.id}"
+  end
+  
+end
+
+get '/users/new' do
+	auth
+	erb :user_edit, :locals => { :user => User.new, :url => '/user' }
+end
+
+post '/authnouser' do
+  if params[:password] == Blog.admin_password
+    response.set_cookie(Blog.admin_cookie_key, Blog.admin_cookie_value) 
+    redirect '/users/new'
+  else
+    erb :nousers, :locals => {:url => '/authnouser'}
+  end
+end
+
+get '/users' do
+
+  users = User.all
+  
+  if users.length > 0
+    auth
+    erb :users, :locals => { :users => users }
+  else
+    erb :nousers, :locals => { :url => '/authnouser' }
+  end
+end
+
+post '/user' do
+  auth
+  if user = User.create(
+    :login => params[:login], 
+    :fname => params[:fname], 
+    :lname => params[:lname], 
+    :email => params[:email], 
+    :password => params[:password], 
+    :password_confirmation => params[:password_confirmation], 
+    :created_at => Time.now
+  )
+    if request.cookies['user']
+      redirect "/user/#{user.id}"
+    else
+      response.set_cookie(Blog.admin_cookie_key, nil)
+      redirect "/auth"
+    end 
+  else
+    erb :user_edit, :locals => { :user => User.new, :url => '/users' }
+  end
 end
 

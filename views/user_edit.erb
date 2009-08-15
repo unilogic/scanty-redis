@@ -1,0 +1,67 @@
+<% if user.id %>
+	<h2>Updating User: <%= user.login %><h2>
+<% else %>
+	<h2>New User<h2>
+<% end %>
+
+<form action="<%= url %>" method="post" name="edit">
+	<table>
+		<% unless user.id %>
+			<tr>
+				<td>
+					<label for="login">Login</label>
+				</td>
+				<td>
+					<input type="text" name="login" value="<%= user.login %>" />
+				</td>
+			</tr>
+		<% else %>
+			<input type="hidden" name="login" value="<%= user.login %>" />
+		<% end %>
+		<tr>
+			<td>
+				<label for="fname">First Name</label>
+			</td>
+			<td>
+				<input type="text" name="fname" value="<%= user.fname %>" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="lname">Last Name</label>
+			</td>
+			<td>
+				<input type="text" name="lname" value="<%= user.lname %>" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="email">Email Address</label>
+			</td>
+			<td>
+				<input type="text" name="email" value="<%= user.email %>" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="password">Password</label>
+			</td>
+			<td>
+				<input type="password" name="password" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="password_confirmation">Password Confirmation</label>
+			</td>
+			<td>
+				<input type="password" name="password_confirmation" />
+			</td>
+		</tr>
+	</table>
+	<% if user.id %>
+		<input type="submit" value="Update" />
+	<% else %>
+		<input type="submit" value="Save" />
+	<% end %>
+</form>
