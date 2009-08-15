@@ -1,0 +1,130 @@
+/*  
+title: Vostok Theme
+author: Javier Cañada
+version: 0.1
+homepage: http://www.vostoktheme.com/
+summary: Based in Vostok Theme for Wordpress originally designed by Javier Cañada
+adapted_by: itwp
+adapted_by_url: http://intothewepit.com
+*/
+
+*{margin:0;padding:0;}
+body{
+	background:#2f2f2f;
+	border-top:5px solid #333;
+	font-family:"Lucida Grande",Helvetica,Arial,sans-serif;
+	font-size:62.5%;
+	margin:0;
+	padding:0;
+	text-align:center;
+}
+#wrapper{
+	margin:0 auto;
+	line-height:1.5em;
+	font-size:1.3em;
+	text-align:left;
+	width:46.15em;
+	color:#999;
+}
+#sidebar{margin:1em 0;}
+.sidebar-item{float:left;width:48%;}
+#header{padding:3em 1em 1em 0;}
+#header .description{margin:0;}
+#footer{
+	border-top:1px solid #3c3c3c;
+	padding:.5em 0 1em;
+	clear:both;
+}
+
+h1{line-height:1.2em;font-size:1.8em;font-weight:normal;}
+h1 a{color:#ccc;}
+h1 a:hover{color:#f90;}
+h2, h3{line-height:1.2em;font-size:1.5em;font-weight:normal;}
+h2.error{margin:5em 0;color:#ccc;}
+p{margin:1em 0;line-height:1.6em;}
+em,strong{color:#ccc;}
+blockquote{margin:1.5em;padding:1em;background-color:#2f2f2f;}
+a{text-decoration:none;outline:none;color:#09c;}
+a.feed{padding:3px 0 3px 20px;background:url('/images/ico-rss.jpg') center left no-repeat;}
+input,textarea{font-family:inherit;}
+ul,ol{list-style-type:none;}
+
+
+.hentry{
+	margin:2.6em 0;
+	padding:2.5em 2.7em 3.5em;
+	background-color:#3c3c3c;
+	position:relative;
+}
+.hentry a{color:#f90;}
+.hentry a:hover{color:#ccc;}
+.hentry h2 a{color:#ccc;}
+.hentry h2 a:hover{color:#f90;}
+.entry-title{margin-bottom:.5em;}
+.updated{position:absolute;top:0;right:1em;font-size:.95em;color:#828282;}
+.entry-content{overflow:hidden;}
+.entry-content img, .entry-content object, .entry-content embed {display:block;margin:2em auto;}
+.entry-content img{border:5px solid #fff;}
+.entry-content ul li{padding-left:12px;background:url('/images/bullet.gif') center left no-repeat;line-height:1.8em;}
+.entrymeta{margin:.5em -1.5em -2.5em 0;text-align:right;}
+.entrymeta a{color:#ccc;text-decoration:underline;}
+.entrymeta a:hover{color:#f90;}
+
+
+#comments{margin:1em 0;}
+#comments h3{margin:2em 0 1em;color:#ccc;}
+#comments ol{padding:1em 0 4em;}
+.comment{position:relative;margin-top:1em;border-top:1px solid #3c3c3c;padding:1em 1.5em .5em;}
+.comment-author{color:#ccc;}
+.comment-author cite{font-style:normal;}
+.comment-author a{color:#f90;text-decoration:underline;}
+.comment-author a:hover{color:#ccc;}
+.comment-date{position:absolute;bottom:-1.5em;right:.5em;}
+.comment-date a{color:#999;}
+.comment-date a:hover{color:#ccc;}
+.comment blockquote{margin:1em 0;padding:0;}
+#do-comment-box{margin:3em 0;padding:.5em 2.7em 2.5em;background-color:#3c3c3c;}
+#do-comment-box p{margin:0 0 .5em;}
+#do-comment-box label{display:block;}
+#do-comment-box textarea{width:520px;padding:.3em;font-size:1em;}
+#do-comment-box input{width:250px;margin-bottom:.5em;padding:.1em;font-size:1em;}
+p.btn{text-align:right;}
+#do-comment-box p.btn input{width:auto;}
+#comment-errors{margin-bottom:1em;padding:.5em;background-color:#FFC;color:#333;}
+p.error{width:250px;padding:.3em;background-color:#E8EABC;color:red;}
+
+
+#sidebar{margin-top:8em;}
+#sidebar a{color:#ccc;}
+#sidebar a:hover{color:#f90;}
+
+input#q{width:175px;}
+.sidebar-item form p{display:inline;}
+.sidebar-item form{margin-bottom:1em;}
+.sidebar-item p{margin:.3em 0;}
+
+#footer a{text-decoration:underline;}
+#section-headline{margin-top:3em;}
+#section-headline a{color:#f90;text-decoration:underline;}
+#section-headline a:hover{color:#ccc;}
+
+h2#search-results-title{margin-top:3em;}
+
+.clearfix:after{content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+* html .clearfix{zoom:1;}/*=ie*/
+
+pre, .code {
+        padding: 5px 5px;
+        margin: 5px 0 5px;
+        border-left: 5px solid #666666;
+        background: #222222; 
+        font: 1em/1.5 "Courier News", monospace;
+        color: #bbbbbb;
+        overflow : auto;
+}
+

@@ -43,7 +43,7 @@ layout 'layout'
 get '/' do
 	cache_page
 	posts = Post.find_range(0, 10)
-	erb :index, :locals => { :posts => posts }, :layout => false
+	erb :index, :locals => { :posts => posts }
 end
 
 get '/past/:year/:month/:day/:slug/' do
@@ -93,7 +93,7 @@ get '/auth' do
 end
 
 post '/auth' do
-	set_cookie(Blog.admin_cookie_key, Blog.admin_cookie_value) if params[:password] == Blog.admin_password
+	session.set_cookie(Blog.admin_cookie_key, Blog.admin_cookie_value) if params[:password] == Blog.admin_password
 	redirect '/'
 end
 
@@ -113,6 +113,17 @@ get '/past/:year/:month/:day/:slug/edit' do
 	post = Post.find_by_slug(params[:slug])
 	stop [ 404, "Page not found" ] unless post
 	erb :edit, :locals => { :post => post, :url => post.url }
+end
+
+get '/past/:year/:month/:day/:slug/delete' do
+	auth
+	post = Post.find_by_slug(params[:slug])
+	stop [ 404, "Page not found" ] unless post
+	if post.destroy
+	  redirect '/'
+	else
+	  erb :edit, :locals => { :post => post, :url => post.url }
+	end
 end
 
 post '/past/:year/:month/:day/:slug/' do

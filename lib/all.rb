@@ -22,3 +22,4 @@ require 'syntax/convertors/html'
 
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'post'
+require 'user'

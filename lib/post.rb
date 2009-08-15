@@ -83,9 +83,9 @@ class Post
 	end
 
 	def destroy
-		DB.list_rm(self.class.chrono_key, db_key, 0)
+		DB.list_rm(self.class.chrono_key, 0, slug)
 		tags.split.each do |tag|
-			DB.list_rm("#{self.class}:tagged:#{tag}", slug, 0)
+			DB.list_rm("#{self.class}:tagged:#{tag}", 0, slug)
 		end
 		DB.delete(db_key)
 	end

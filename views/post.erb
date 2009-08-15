@@ -1,12 +1,15 @@
-<div class="postzoom">
-	<h2 class="title"><%= post.title %></h2>
+<div id="main-content">
+	<div class="hentry">
+	<h2 class="entry-title"><%= post.title %></h2>
+	<p class="updated"><%= post.created_at.strftime("%b") %><b><%= post.created_at.strftime("%d") %></b></p>
 	<p class="meta"><small><%= post.linked_tags %></small></p>
-	<p class="meta"><%= post.created_at %></p>
-	<div class="entry">
+	
+	<div class="entry-content">
 		<%= post.body_html %>
 	</div>
 	<% if admin? %>
 		<div class="edit"><a href="<%= post.url %>edit">edit</a></div>
+		<div class="delete"><a href="<%= post.url %>delete">delete</a></div>
 	<% end %>
 </div>
 
