@@ -1,23 +1,14 @@
-<h2>Admin Auth</h2>
+<h2>Login</h2>
 <form action="/auth" method="post">
-	<table>
-		<tr>
-			<td>
-				<label for="login">Login</label>
-			</td>
-			<td>
-				<input type="text" name="login" />
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label for="password">Password</label>
-			</td>
-			<td>
-				<input type="password" name="password" />
-			</td>
-		</tr>
-	</table>
-	<input type="submit" value="Login" />
+	<fieldset>
+		<legend>Authentication</legend>
+		<label for="login">Login</label>
+		<input type="text" name="login" /><br/>
+
+		<label for="password">Password</label>
+		<input type="password" name="password" /><br/>
+		
+		<label for="kludge"></label>
+		<input type="submit" value="Login" />
+	</fieldset>
 </form>
-<script type="text/javascript">document.forms[0].login.focus()</script>
