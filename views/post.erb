@@ -1,14 +1,16 @@
 <div id="main-content">
 	<div class="hentry">
 	<h2 class="entry-title"><%= post.title %></h2>
-	<p class="updated"><%= post.created_at.strftime("%b") %><b><%= post.created_at.strftime("%d") %></b></p>
-	<p class="meta">
-		<%= "#{load_json(post.author)['fname']} #{load_json(post.author)['lname']}" if post.author %><br/>
-		<small><%= post.linked_tags %></small></p>
-	
+	<p class="updated"><%= post.created_at.strftime("%m/%d/%Y") %></p>
+	<div class='author'>by <%= "#{load_json(post.author)['fname']} #{load_json(post.author)['lname']}" if post.author %></div>
+
 	<div class="entry-content">
 		<%= post.body_html %>
 	</div>
+	<div class="tags">
+		<small>Tags: <%= post.linked_tags %></small>
+	</div>
+	
 	<% if admin? %>
 		<div class="edit"><a href="<%= post.url %>edit">edit</a></div>
 		<div class="delete"><a href="<%= post.url %>delete">delete</a></div>

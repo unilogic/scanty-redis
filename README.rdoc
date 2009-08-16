@@ -29,7 +29,9 @@ set the appropriate environmant variables.  To run the server:
 
   $ ruby main.rb
 
-Then: http://localhost:4567
+Then: http://localhost:4567/users
+
+Login with admin_password set in main.rb. Create your first user.
 
 == Database
 
@@ -64,9 +66,13 @@ or clear the database, you can use the console and the DB constant:
 
 Created by Adam Wiggins
 
+Modified by Ben Allen
+
 Released under the MIT License: http://www.opensource.org/licenses/mit-license.php
 
+http://github.com/unilogic/scanty-redis
 http://github.com/adamwiggins/scanty
 
+http://sysadminschronicles.com
 http://adam.blog.heroku.com
 

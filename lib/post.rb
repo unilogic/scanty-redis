@@ -128,7 +128,7 @@ class Post
 	def linked_tags
 		tags.split.inject([]) do |accum, tag|
 			accum << "<a href=\"/past/tags/#{tag}\">#{tag}</a>"
-		end.join(" ")
+		end.join(", ")
 	end
 
 	def self.make_slug(title)
