@@ -110,6 +110,11 @@ input#q{width:175px;}
 
 h2#search-results-title{margin-top:3em;}
 
+.archive .date {
+	font-size: 85%;
+	color: #828170;
+}
+
 .clearfix:after{content: ".";
     display: block;
     height: 0;
