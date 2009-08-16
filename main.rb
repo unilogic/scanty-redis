@@ -11,7 +11,7 @@ configure do
 		:admin_password => ENV['ADMIN_PASSWORD'] || 'changeme',
 		:admin_cookie_key => 'scanty_admin',
 		:admin_cookie_value => ENV['ADMIN_COOKIE_VALUE'] || '51d6d976913ace58',
-		:disqus_shortname => 'test'
+		:disqus_shortname => nil
 	)
 end
 
