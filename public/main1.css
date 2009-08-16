@@ -49,7 +49,6 @@ a.feed{padding:3px 0 3px 20px;background:url('/images/ico-rss.jpg') center left 
 input,textarea{font-family:inherit;}
 ul,ol{list-style-type:none;}
 
-
 .hentry{
 	margin:2.6em 0;
 	padding:2.5em 2.7em 3.5em;
@@ -69,7 +68,6 @@ ul,ol{list-style-type:none;}
 .entrymeta{margin:.5em -1.5em -2.5em 0;text-align:right;}
 .entrymeta a{color:#ccc;text-decoration:underline;}
 .entrymeta a:hover{color:#f90;}
-
 
 #comments{margin:1em 0;}
 #comments h3{margin:2em 0 1em;color:#ccc;}
@@ -92,7 +90,6 @@ p.btn{text-align:right;}
 #do-comment-box p.btn input{width:auto;}
 #comment-errors{margin-bottom:1em;padding:.5em;background-color:#FFC;color:#333;}
 p.error{width:250px;padding:.3em;background-color:#E8EABC;color:red;}
-
 
 #sidebar{margin-top:8em;}
 #sidebar a{color:#ccc;}
