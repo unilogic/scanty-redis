@@ -23,3 +23,7 @@ require 'syntax/convertors/html'
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'post'
 require 'user'
+
+$LOAD_PATH.unshift(File.dirname(__FILE__) + '/../vendor/sinatra-content-for')
+
+require 'lib/sinatra/content_for'
