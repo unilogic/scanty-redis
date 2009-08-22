@@ -14,8 +14,9 @@ instead of SQL.
 == Dependencies
 
   $ gem install sinatra
+	$ gem install activesupport
 
-Redis-rb, Maruku, and Syntax are all vendored.
+Redis-rb, Maruku, and Syntax are all vendored. ActiveSupport is need as we use its Time class hacks to fix TZ issues.
 
 Get Redis from: http://code.google.com/p/redis/downloads/list
 

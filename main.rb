@@ -95,7 +95,7 @@ end
 
 get '/posts/new' do
 	auth
-	erb :edit, :locals => { :post => Post.new, :url => '/posts' }
+	erb :edit, :locals => { :post => Post.new, :url => '/posts', :created_at => Time.now.strftime("%d/%m/%Y") }
 end
 
 post '/posts' do
@@ -111,11 +111,18 @@ post '/posts' do
 	redirect post.url
 end
 
+get '/posts/reorder_by_created_at' do
+  auth
+  Post.reorder_by_created_at
+  redirect '/'
+end
+
 get '/past/:year/:month/:day/:slug/edit' do
 	auth
 	post = Post.find_by_slug(params[:slug])
+	created_at = post.created_at.strftime("%d/%m/%Y") if post.created_at
 	stop [ 404, "Page not found" ] unless post
-	erb :edit, :locals => { :post => post, :url => post.url }
+	erb :edit, :locals => { :post => post, :url => post.url, :created_at => created_at }
 end
 
 get '/past/:year/:month/:day/:slug/delete' do
@@ -136,6 +143,7 @@ post '/past/:year/:month/:day/:slug/' do
 	post.title = params[:title]
 	post.tags = params[:tags]
 	post.body = params[:body]
+	post.created_at = params[:created_at]
 	post.save
 	redirect post.url
 end
@@ -149,6 +157,7 @@ post '/auth' do
 	  attrs.delete(:password)
 	  attrs.delete(:password_confirmation)
 	  attrs.delete(:salt)
+	  attrs.delete(:created_at)
 	  response.set_cookie('user', attrs.to_json)
 	  redirect '/'
 	else

@@ -172,6 +172,23 @@ form input {
 	width:auto;      /* set width of form elements to auto-size, otherwise watch for wrap on resize */
 	margin:5px 0 0 10px; /* set margin on left of form elements rather than right of
                               label aligns textarea better in IE */
+	white-space:nowrap;
+}
+
+
+
+#created_at_Year_ID {
+	margin: 0;
+	padding: 0;
+}
+
+.created_at select {
+	margin-top: 1px;
+	
+}
+
+#created_at_Month_ID {
+	margin-left: 7px;
 }
 
 form textarea {

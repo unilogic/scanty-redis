@@ -135,6 +135,18 @@ class Post
 		title.downcase.gsub(/ /, '_').gsub(/[^a-z0-9_]/, '').squeeze('_')
 	end
 
+  def self.reorder_by_created_at
+    posts = self.all
+    
+    posts.sort! { |a,b| a.created_at <=> b.created_at }
+    if posts
+      DB.list_trim(self.chrono_key, 1, 0)
+      posts.each do |post|
+        DB.push_head(self.chrono_key, post.slug)
+      end
+    end
+  end
+  
 	########
 
 	def to_html(markdown)

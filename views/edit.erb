@@ -8,10 +8,10 @@
 				<label for="login">Tags: </label>
 				<input type="text" name="tags" value="<%= post.tags %>" /><br/>
 				
-				<% if post.created_at %>
-						<label for="created_at">Created At</label>
-						<%= post.created_at %><br/>
-				<% end %>
+				<div class="created_at">
+				<label for="created_at">Date: </label>
+				<script>DateInput('created_at', true, 'DD/MM/YYYY', '<%= created_at %>')</script></div><br/>
+
 	</fieldset>
 	<fieldset>
 		<legend>Body </legend>
