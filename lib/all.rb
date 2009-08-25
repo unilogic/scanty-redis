@@ -1,6 +1,6 @@
 require 'json'
 require 'ostruct'
-#require 'active_support/core_ext/time'
+require 'rdiscount'
 
 $LOAD_PATH.unshift File.dirname(__FILE__) + '/../vendor/redis'
 require 'redis'
@@ -14,8 +14,6 @@ else
 end
 
 DB = Redis.new(redis_config)
-
-require File.dirname(__FILE__) + '/../vendor/maruku/maruku'
 
 $LOAD_PATH.unshift File.dirname(__FILE__) + '/../vendor/syntax'
 require 'syntax/convertors/html'

@@ -150,7 +150,7 @@ class Post
 	########
 
 	def to_html(markdown)
-		h = Maruku.new(markdown).to_html
+		h = Markdown.new(markdown).to_html
 		h.gsub(/<code>([^<]+)<\/code>/m) do
 			convertor = Syntax::Convertors::HTML.for_syntax "ruby"
 			highlighted = convertor.convert($1)
