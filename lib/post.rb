@@ -153,7 +153,7 @@ class Post
 		h = Markdown.new(markdown).to_html
 		h.gsub(/<code>([^<]+)<\/code>/m) do
 			convertor = Syntax::Convertors::HTML.for_syntax "ruby"
-			highlighted = convertor.convert($1)
+			highlighted = convertor.convert($1, false)
 			"<code>#{highlighted}</code>"
 		end
 	end
