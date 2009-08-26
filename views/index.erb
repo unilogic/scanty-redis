@@ -1,7 +1,7 @@
 <div id ="main-content">
 	<% posts.each do |post| %>
 		<div class="hentry">
-			<h2 class="entry-title"><a href="<%= post.url %>"><%= post.title %></a></h2>
+			<h1 class="entry-title"><a href="<%= post.url %>"><%= post.title %></a></h1>
 			<p class="updated"><%= post.created_at.strftime("%m/%d/%Y") %></p>
 			<div class='author'>by <%= "#{load_json(post.author)['fname']} #{load_json(post.author)['lname']}" if post.author %></div>
 			

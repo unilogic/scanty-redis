@@ -41,7 +41,7 @@ body{
 h1{line-height:1.2em;font-size:1.8em;font-weight:normal;}
 h1 a{color:#ccc;}
 h1 a:hover{color:#f90;}
-h2, h3{line-height:1.2em;font-size:1.5em;font-weight:normal; padding-bottom: 10px;}
+h2, h3{line-height:1.2em;font-size:1.3em;font-weight:normal; padding-bottom: 10px; padding-top: 7px;}
 h2.error{margin:5em 0;color:#ccc;}
 p{margin:1em 0;line-height:1.6em;}
 em,strong{color:#ccc;}
@@ -71,7 +71,7 @@ ul,ol{list-style-type:none;}
 .entrymeta{margin:.5em -1.5em -1.2em 0;text-align:right;}
 .entrymeta a{color:#ccc;text-decoration:underline;}
 .entrymeta a:hover{color:#f90;}
-.author {font-size: .8em;padding-left:8px;padding-bottom:1.6em;margin-top:-0.9em;}
+.author {font-size: .8em;padding-left:8px;padding-bottom:1.6em;margin-top:-0.5em;}
 .tags {padding-top:10px;}
 
 #comments{margin:1em 0;}
