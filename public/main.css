@@ -214,3 +214,30 @@ form .required{font-weight:bold;} /* uses class instead of div, more efficient *
 form br {
 	clear:left; /* setting clear on inputs didn't work consistently, so brs added for degrade */
 }
+
+/* Disqus styling */
+div.dsq-input-wrapper {
+	width: 190px;
+}
+
+div.dsq-post-footer {
+	width: 101px;
+}
+
+
+.dsq-placeholder {
+	margin: 0;
+}
+
+div.dsq-subscribe {
+	width:  200px;
+	font-size: 10px;
+	color:#ccc; 
+	
+}
+
+div.dsq-subscribe small {
+	margin: 0;
+	padding: 0;
+	text-align: right;
+}
