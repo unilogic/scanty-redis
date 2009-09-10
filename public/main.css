@@ -216,28 +216,58 @@ form br {
 }
 
 /* Disqus styling */
-div.dsq-input-wrapper {
-	width: 190px;
+span.dsq-comment-header-time {
+	color: #999;
 }
 
-div.dsq-post-footer {
-	width: 101px;
+td.dsq-request-user-stats {
+	font-size: 10px;
+	color: #999;
 }
 
 
 .dsq-placeholder {
 	margin: 0;
+	padding: 0;
+	
+	white-space: normal;
+}
+
+input#dsq-field-name {
+	margin: 0;
+	padding: 0;
+}
+
+input#dsq-field-email {
+	margin: 0;
+	padding: 0;
+}
+
+input#dsq-field-website {
+	margin: 0;
+	padding: 0;
 }
 
 div.dsq-subscribe {
-	width:  200px;
+	padding:  20px;
 	font-size: 10px;
-	color:#ccc; 
-	
+	color:#999; 
+}
+
+#dsq-form-area div.dsq-post-fields form {
+	width: 100%;
 }
 
 div.dsq-subscribe small {
 	margin: 0;
 	padding: 0;
 	text-align: right;
+}
+
+div#dsq-comments-title {
+	clear: both;
+}
+
+div.dsq-post-fields tr {
+	width: 100%;
 }
