@@ -115,6 +115,8 @@ h2#search-results-title{margin-top:3em;}
 .archive .date {
 	font-size: 85%;
 	color: #828170;
+	width: 110px;
+	text-align: right;
 }
 
 .clearfix:after{content: ".";
