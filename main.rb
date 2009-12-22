@@ -104,7 +104,7 @@ post '/posts' do
 	  :title => params[:title], 
 	  :tags => params[:tags], 
 	  :body => params[:body], 
-	  :created_at => Time.now, 
+	  :created_at => params[:created_at] || Time.now, 
 	  :slug => Post.make_slug(params[:title]),
 	  :author => request.cookies['user']
 	)
